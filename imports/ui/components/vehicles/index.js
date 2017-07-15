@@ -22,6 +22,5 @@ Template.addVehicle.events({
         console.log('Here');
         $('#register-vehicle-modal').css({ display: "block" });
 
-        // $('.register-vehicle-modal').toggleClass('is-hidden');
     }
 });
