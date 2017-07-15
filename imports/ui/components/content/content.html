@@ -1,28 +1,27 @@
 <template name='content'>
-    <div class="card">
-  <header class="card-header">
-    <p class="card-header-title">
-      {{#if currentUser}}
-        Hello {{getScreenName}}
-        {{/if}}
-    </p>
-    <a class="card-header-icon">
+  <div class="card">
+    <header class="card-header">
+      <p class="card-header-title">
+        {{#if currentUser}} Hello {{getScreenName}} {{/if}}
+      </p>
+      <a class="card-header-icon">
       <span class="icon">
         <i class="fa fa-angle-down"></i>
       </span>
     </a>
-  </header>
-  <div class="card-content">
-    <div class="content">
-     Will fill this up
-      <br>
-      <small>11:09 PM - 1 Jan 2018</small>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        {{#if currentUser}}
+          {{> addVehicle}} 
+          {{> barchart}} 
+        {{else}}
+        <div class="notification is-warning">
+          Please <strong>login</strong> to proceed !!
+        </div>
+        {{/if}}
+
+      </div>
     </div>
   </div>
-  <footer class="card-footer">
-    <a class="card-footer-item">Save</a>
-    <a class="card-footer-item">Edit</a>
-    <a class="card-footer-item">Delete</a>
-  </footer>
-</div>
 </template>

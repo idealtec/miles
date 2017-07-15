@@ -1,0 +1,34 @@
+<template name='addVehicle'>
+    {{> registerVehicle}}
+    Hello
+    {{#if vehicleCount}}
+    {{> listVehicle}}
+    {{else}}
+    <div class="notification is-danger">
+        <button class="delete"></button> No Vehicles Found.
+    </div>
+    <div class="card is-primary">
+        <header class="card-header">
+            <p class="card-header-title">
+                No Vehicles found
+            </p>
+            <a class="card-header-icon">
+      <span class="icon">
+        <i class="fa fa-flag"></i>
+      </span>
+    </a>
+        </header>
+        <div class="card-content">
+            <div class="content">
+                Please register your vehicle
+            </div>
+        </div>
+        <footer class="card-footer">
+            <a class="btn-add-vehicle card-footer-item" data-target='register-vehicle-modal'>Add</a>
+            <a class="card-footer-item">Edit</a>
+            <a class="card-footer-item">Delete</a>
+        </footer>
+    </div>
+    {{/if}}
+    
+</template>

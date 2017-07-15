@@ -2,3 +2,5 @@
 
 import '../../api/links/methods.js';
 import '../../api/links/server/publications.js';
+import '../../api/vehicles/methods.js';
+import '../../api/vehicles/server/publications.js';
