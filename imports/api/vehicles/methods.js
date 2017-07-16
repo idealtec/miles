@@ -6,7 +6,7 @@ import { Vehicles } from './vehicles';
 
 
 Meteor.methods({
-  'vehicles.insert'(name, vin,miles) {
+  'vehicles.insert'(name, vin, miles) {
     check(name, String);
     check(vin, String);
     check(miles, Number);
@@ -15,8 +15,13 @@ Meteor.methods({
       name,
       vin,
       miles,
-      owner:this.userId,
+      owner: this.userId,
       createdAt: new Date(),
+    });
+  },
+  'vehicles.remove'() {
+    return Vehicles.remove({
+      owner: this.userId,
     });
   },
 });
