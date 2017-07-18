@@ -4,7 +4,7 @@ import {Template} from 'meteor/templating';
 import './addVehicle.html';
 import './listVehicle';
 import './registerVehicle';
-import './fillUp';
+import './listFillups';
 
 Template.addVehicle.onCreated(function () {
   Meteor.subscribe('vehicles.all');

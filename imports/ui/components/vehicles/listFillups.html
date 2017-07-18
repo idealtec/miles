@@ -1,0 +1,28 @@
+<template name='listFillups'>
+    <table class="table is-bordered is-striped is-narrow">
+        <thead>
+            <tr>
+                <th><abbr title="Miles">Miles</abbr></th>
+                <th>Team</th>
+                <th><abbr title="Gallons">Gallons</abbr></th>
+                <th><abbr title="Price">Price</abbr></th>
+                <th><abbr title="Gain">Gain</abbr></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th><abbr title="Position">Pos</abbr></th>
+            </tr>
+        </tfoot>
+        <tbody>
+            {{#each fillups}}
+            <tr>
+                <th>{{miles}}</th>
+                <td>{{gallons}}</td>
+                <td>{{price}}</td>
+                <td>12</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</template>

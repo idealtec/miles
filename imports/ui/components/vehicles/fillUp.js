@@ -19,14 +19,28 @@ Template.fillUp.events({
         let miles = parseInt($('#fillup-miles').val());
         let gallons = parseInt($('#fillup-gallons').val());
         let price = parseInt($('#fillup-price').val());
+
         Meteor.call('fillups.insert', miles, gallons, price, (error) => {
             if (error) {
                 alert(error.error);
             } else {
                 console.log('successful Insert');
-                // clearForm();
+                 clearForm();
             }
         });
 
+    },
+    'click .btn-fillup-cancel'(event,template){
+        event.preventDefault();
+        clearForm();
     }
 });
+
+function clearForm() {
+  $('#fillup-miles').val('');
+  $('#fillup-gallons').val('');
+  $('#fillup-price').val('');
+  $('#fillup-form').css({ display: "none" });
+
+
+}
