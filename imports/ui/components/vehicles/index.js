@@ -1,8 +1,10 @@
 import { Vehicles } from '/imports/api/vehicles/vehicles';
 import { Meteor } from 'meteor/meteor';
+import {Template} from 'meteor/templating';
 import './addVehicle.html';
 import './listVehicle';
 import './registerVehicle';
+import './fillUp';
 
 Template.addVehicle.onCreated(function () {
   Meteor.subscribe('vehicles.all');

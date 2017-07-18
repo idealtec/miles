@@ -1,0 +1,38 @@
+<template name='fillUp'>
+    <div class="modal" id='fillup-form'>
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Add fillup details</p>
+                <button class="delete"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="field">
+                    <label class="label">Mileage</label>
+                    <div class="control">
+                        <input class="input" id='fillup-miles' type="number" placeholder="Enter Current Mileage">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Gallons</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-success" id='fillup-gallons' type="number" placeholder="Enter # of gallons">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Price</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-danger" type="number" placeholder="How much you paid?" value="">
+                    </div>
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <a class="button is-success btn-add-fillup">Save changes</a>
+                <a class="button">Cancel</a>
+            </footer>
+        </div>
+    </div>
+
+</template>

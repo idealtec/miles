@@ -1,6 +1,7 @@
 import { Vehicles } from '/imports/api/vehicles/vehicles';
 import { Meteor } from 'meteor/meteor';
 import './listVehicle.html';
+import './fillUp';
 
 Template.listVehicle.onCreated(function () {
   console.log('list created');
@@ -18,13 +19,7 @@ Template.listVehicle.helpers({
 Template.listVehicle.events({
   'click .btn-add-vehicle'(event, template) {
     event.preventDefault();
-    Meteor.call('vehicles.insert', 'Benz', 'Dummy vin', 455, (error) => {
-      if (error) {
-        alert(error.error);
-      } else {
-        console.log('successful Insert');
-      }
-    });
+
   },
   'click .vehicle-deregister'(event, template) {
     event.preventDefault();
@@ -35,5 +30,21 @@ Template.listVehicle.events({
         console.log('successful removal');
       }
     })
+  },
+  'click .fillup-add'(event, template) {
+    event.preventDefault();
+    console.log('Here Man');
+    //Show modal
+    $('#fillup-form').css({ display: "block" });
+
+
+
+    // Meteor.call('vehicles.remove', (error) => {
+    //   if (error) {
+    //     alert(error.error);
+    //   } else {
+    //     console.log('successful removal');
+    //   }
+    // })
   }
 });

@@ -18,7 +18,6 @@ Template.registerVehicle.events({
     let nickname = $('#vehicle-name').val();
     let vin = $('#vehicle-vin').val();
     let miles = parseInt($('#vehicle-miles').val());
-    console.log(' I will add now',nickname);
     Meteor.call('vehicles.insert', nickname, vin, miles, (error) => {
       if (error) {
         alert(error.error);
