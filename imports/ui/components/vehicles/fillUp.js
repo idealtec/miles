@@ -1,6 +1,7 @@
 
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import {Fillups} from '/imports/api/fillups/fillups';
 import './fillUp.html';
 
 Template.fillUp.onCreated(function () {
