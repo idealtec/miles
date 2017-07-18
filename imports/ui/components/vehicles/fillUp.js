@@ -15,7 +15,10 @@ Template.fillUp.helpers({
 Template.fillUp.events({
     'click .btn-add-fillup'(event, template) {
         event.preventDefault();
-
+        console.log('Vammo');
+        let miles = parseInt($('#fillup-miles').val());
+        let gallons = parseInt($('#fillup-gallons').val());
+        let price = parseInt($('#fillup-price').val());
         Meteor.call('fillups.insert', miles, gallons, price, (error) => {
             if (error) {
                 alert(error.error);

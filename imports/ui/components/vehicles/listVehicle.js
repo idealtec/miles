@@ -1,4 +1,5 @@
 import { Vehicles } from '/imports/api/vehicles/vehicles';
+import { Fillups } from '/imports/api/fillups/fillups';
 import { Meteor } from 'meteor/meteor';
 import './listVehicle.html';
 import './fillUp';
@@ -14,7 +15,10 @@ Template.listVehicle.helpers({
   },
   vehicleCount() {
     return Vehicles.find({}).count();
-  }
+  },
+  fillups() {
+        return Fillups.find({});
+    },
 });
 Template.listVehicle.events({
   'click .btn-add-vehicle'(event, template) {
