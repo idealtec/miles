@@ -3,6 +3,18 @@ import { Fillups } from '/imports/api/fillups/fillups';
 import { Meteor } from 'meteor/meteor';
 import './listVehicle.html';
 import './fillUp';
+import {
+  currentTimezone,
+  hoursMinutes,
+  timeago,
+  localize,
+  monthDayYear,
+  monthDayYearAtTime,
+  epochToISOString,
+  daysInFuture,
+  daysInPast,
+  hasPassed,
+} from '/imports/modules/dates';
 
 Template.listVehicle.onCreated(function () {
   console.log('list created');
@@ -16,6 +28,11 @@ Template.listVehicle.helpers({
   vehicleCount() {
     return Vehicles.find({}).count();
   },
+  formatDate(value){
+    console.log('got', currentTimezone());
+    return monthDayYear(value, currentTimezone());
+  },
+
   fillups() {
         return Fillups.find({});
     },

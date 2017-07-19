@@ -2,25 +2,24 @@
     <table class="table is-bordered is-striped is-narrow">
         <thead>
             <tr>
-                <th><abbr title="Miles">Miles</abbr></th>
-                <th>Team</th>
-                <th><abbr title="Gallons">Gallons</abbr></th>
-                <th><abbr title="Price">Price</abbr></th>
-                <th><abbr title="Gain">Gain</abbr></th>
+                <th>Miles</th>
+                <th>Gallons</th>
+                <th>Price</th>
+                <th>Added on</th>
             </tr>
         </thead>
-        <tfoot>
+        <!-- <tfoot>
             <tr>
                 <th><abbr title="Position">Pos</abbr></th>
             </tr>
-        </tfoot>
+        </tfoot> -->
         <tbody>
             {{#each fillups}}
             <tr>
                 <th>{{miles}}</th>
                 <td>{{gallons}}</td>
                 <td>{{price}}</td>
-                <td>12</td>
+                <td>{{ getDateTime createdAt}}</td>
             </tr>
             {{/each}}
         </tbody>

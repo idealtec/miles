@@ -7,6 +7,8 @@
                 <button class="delete btn-fillup-cancel"></button>
             </header>
             <section class="modal-card-body">
+                <div class="notification is-danger fillup-error is-hidden">
+                </div>
                 <div class="field">
                     <label class="label">Mileage</label>
                     <div class="control">
@@ -17,14 +19,14 @@
                 <div class="field">
                     <label class="label">Gallons</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input is-success" id='fillup-gallons' type="number" placeholder="Enter # of gallons">
+                        <input class="input" id='fillup-gallons' type="number" placeholder="Enter # of gallons">
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label">Price</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input is-danger" id='fillup-price' type="number" placeholder="How much you paid?" value="">
+                        <input class="input" id='fillup-price' type="number" placeholder="How much you paid?" value="">
                     </div>
                 </div>
             </section>

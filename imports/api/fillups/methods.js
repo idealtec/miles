@@ -12,17 +12,25 @@ Meteor.methods({
     check(gallons, Number);
     check(miles, Number);
     let myVehicle = Vehicles.findOne({ owner: this.userId });
+    let initMiles = myVehicle.miles;
+    // let initMiles = getLatestMiles();
     let vin = myVehicle.vin;
-
-    console.log('returning now');
-    return Fillups.insert({
-      miles,
-      gallons,
-      price,
-      vin,
-      owner: this.userId,
-      createdAt: new Date(),
-    });
+    console.log('returning now', initMiles, miles);
+    if (initMiles <= miles) {
+      //mean data might be right..so insert
+      return Fillups.insert({
+        miles,
+        gallons,
+        price,
+        vin,
+        owner: this.userId,
+        createdAt: new Date(),
+      });
+    } else {
+      //current miles cannot be less than initial miles..please check
+      console.log('Returning error as miles check failed');
+      throw new Meteor.Error('Miles cannot be less than initial miles');
+    }
 
 
   },
@@ -32,3 +40,17 @@ Meteor.methods({
     });
   },
 });
+
+// function getLatestMiles() {
+//   let latestFillup = Fillups.findOne({ owner: this.userId }, { "sort": [['createdAt', 'desc']] });
+//   let latestMiles;
+//   console.log('getLatestMiles--', latestFillup);
+//   if (null === latestFillup) {
+//     //means get the last entered miles from vehicle registration collection
+//     latestMiles = Vehicles.findOne({ owner: this.userId }).miles;
+
+//   } else {
+//     latestMiles = latestFillup.miles;
+//   }
+//   return latestMiles;
+// }
