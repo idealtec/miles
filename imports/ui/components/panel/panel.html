@@ -4,7 +4,11 @@
             Miles - App
         </p>
 {{> navbar}}
+{{#if currentUser}}
 {{> content}}
+{{else}}
+{{> login}}
+{{/if}}
 {{> footer}}
     </nav>
 </template>

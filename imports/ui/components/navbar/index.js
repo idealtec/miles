@@ -32,6 +32,7 @@ Template.navbar.events({
     },
     "click [action='logout']"(event, template) {
         event.preventDefault();
+        template.$('.navbar-menu').toggleClass("is-active")
         Meteor.logout();
     },
 });
