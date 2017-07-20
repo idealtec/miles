@@ -29,7 +29,7 @@ Template.listVehicle.helpers({
     return Vehicles.find({}).count();
   },
   formatDate(value){
-    console.log('got', currentTimezone());
+    console.log('You are in', currentTimezone());
     return monthDayYear(value, currentTimezone());
   },
 

@@ -1,11 +1,14 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+import {Session} from 'meteor/session';
+
 import Chart from 'chart.js';
 
 import './barchart.html';
 
 Template.barchart.onRendered(function() {
 var ctx = document.getElementById("myChart");
+console.log('While rendering ',Session.get('milesData'));
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {

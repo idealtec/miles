@@ -12,8 +12,12 @@ Meteor.methods({
     check(gallons, Number);
     check(miles, Number);
     let myVehicle = Vehicles.findOne({ owner: this.userId });
+    let lastFillup = Fillups.findOne({ owner: this.userId }, { "sort": [['miles', 'desc']] });
     let initMiles = myVehicle.miles;
-    // let initMiles = getLatestMiles();
+    if(lastFillup){
+      initMiles = lastFillup.miles;
+      console.log('top miles==',initMiles);
+    }
     let vin = myVehicle.vin;
     console.log('returning now', initMiles, miles);
     if (initMiles <= miles) {

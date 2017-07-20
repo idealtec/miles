@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Fillups } from '/imports/api/fillups/fillups';
 import './fillUp.html';
+import { Session  } from 'meteor/session';
 
 Template.fillUp.onCreated(function () {
     Meteor.subscribe('fillups.all');
@@ -29,6 +30,7 @@ Template.fillUp.events({
                 clearForm();
             }
         });
+        updateSession();
 
     },
     'click .btn-fillup-cancel'(event, template) {
@@ -36,6 +38,20 @@ Template.fillUp.events({
         clearForm();
     }
 });
+function updateSession() {
+    console.log('Updating Session');
+    let fillups = Fillups.find({});
+    let milesData = [];
+    let priceData = [];
+    fillups.forEach(function (element) {
+        milesData.push(element.miles)
+        priceData.push(element.gallons)
+    });
+
+    console.log('miles', milesData);
+    Session .set('milesData', milesData);
+    Session .set('priceData', priceData);
+}
 
 function clearForm() {
     $('.fillup-error').toggleClass('is-hidden');
