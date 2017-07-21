@@ -8,7 +8,7 @@ Template.navbar.events({
     'click .charts': function (event, template) {
         template.$('.navbar-menu').toggleClass("is-active")
 
-        $("#myChart").toggleClass('is-hidden');
+        // $("#myChart").toggleClass('is-hidden');
 
     },
     'click [data-social-login]'(event, template) {

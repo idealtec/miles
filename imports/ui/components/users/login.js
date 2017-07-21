@@ -36,6 +36,15 @@ Template.login.events({
                 console.log(error.reason);
             } else {
                 console.log('success');
+                Meteor.call('sendVerificationLink',(error,response)=>{
+                    if(error){
+                        console.log('Error in sending verification email');
+                    }else{
+                        //success
+                        console.log('Sent verification email');
+                        
+                    }
+                });
             }
         });
     }
