@@ -6,3 +6,4 @@ import '../../api/vehicles/methods.js';
 import '../../api/vehicles/server/publications.js';
 import '../../api/fillups/methods.js';
 import '../../api/fillups/server/publications.js';
+import '/imports/api/emails/server/methods';

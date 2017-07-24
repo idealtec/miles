@@ -1,4 +1,5 @@
 {
+  "MAIL_URL":"smtps://postmaster%40smtp.sparkpostmail.com:d35c1c161efecc1e1ddb610dede5fd4aaf8f2db7@smtp.sparkpostmail.com:587",
   "public": {},
   "private": {
     "oAuth": {
@@ -20,5 +21,6 @@
         "secret": "nFOj8lewyngTK22aUQ4SacBjqnWs22bthcCiZNMPTzZSIEDJNe"
       }
     }
+    
   }
 }

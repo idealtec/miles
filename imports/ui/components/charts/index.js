@@ -16,7 +16,7 @@ Template.barchart.onRendered(function () {
                 datasets: [{
                     label: '# of Miles',
                     data: Session.get('milesData'),
-                    fill:false,
+                    fill:true,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)'
                     ],
@@ -27,7 +27,7 @@ Template.barchart.onRendered(function () {
                 }, {
                     label: '# of Gallons',
                     data: Session.get('gallonsData'),
-                    fill:false,
+                    fill:true,
                     backgroundColor: [
 
                         'rgba(54, 162, 235, 0.2)'
@@ -41,7 +41,7 @@ Template.barchart.onRendered(function () {
             {
                     label: 'Price',
                     data: Session.get('priceData'),
-                    fill:false,
+                    fill:true,
                     backgroundColor: [
 
                         'rgba(255, 159, 64, 0.2)'
@@ -63,7 +63,7 @@ Template.barchart.onRendered(function () {
                         }
                     }],
                     yAxes: [{
-                        stacked: true,
+                        stacked: false,
                         scaleLabel: {
                             display: true,
                             labelString: 'Value'

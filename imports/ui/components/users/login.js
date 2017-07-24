@@ -20,6 +20,16 @@ Template.login.events({
             if (error) {
                 console.log(error.reason);
             } else {
+                            // Accounts.sendVerificationEmail(email);
+                            Meteor.call('sendVerificationLink',(error,response)=>{
+                    if(error){
+                        console.log('Error in sending verification email',error.reason);
+                    }else{
+                        //success
+                        console.log('Sent verification email');
+                        
+                    }
+                });
                 console.log('success');
             }
         });
@@ -38,7 +48,7 @@ Template.login.events({
                 console.log('success');
                 Meteor.call('sendVerificationLink',(error,response)=>{
                     if(error){
-                        console.log('Error in sending verification email');
+                        console.log('Error in sending verification email',error);
                     }else{
                         //success
                         console.log('Sent verification email');

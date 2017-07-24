@@ -55,6 +55,7 @@ function updateSession() {
 
 function clearForm() {
     $('.fillup-error').toggleClass('is-hidden');
+    $('.fillup-error').text('');
     $('#fillup-miles').val('');
     $('#fillup-gallons').val('');
     $('#fillup-price').val('');
