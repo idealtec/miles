@@ -7,7 +7,8 @@ import Chart from 'chart.js';
 import './barchart.html';
 
 Template.barchart.onRendered(function () {
-    var ctx = document.getElementById("myChart");
+    var ctx = $("#myChart");
+    // var ctx = document.getElementById("myChart");
     this.autorun(() => {
         var myChart = new Chart(ctx, {
             type: 'line',
@@ -16,7 +17,7 @@ Template.barchart.onRendered(function () {
                 datasets: [{
                     label: '# of Miles',
                     data: Session.get('milesData'),
-                    fill:true,
+                    fill:false,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)'
                     ],

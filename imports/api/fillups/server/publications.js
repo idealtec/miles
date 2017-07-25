@@ -4,5 +4,5 @@ import { Meteor } from 'meteor/meteor';
 import { Fillups } from '../fillups';
 
 Meteor.publish('fillups.all', function () {
-  return Fillups.find({owner:this.userId});
+  return Fillups.find({owner:this.userId},{sort: {createdAt: 1}, limit:15});
 });
