@@ -13,7 +13,6 @@ Template.login.helpers({
 
 Template.login.events({
     'click .btn-login'(event, template) {
-        console.log('Login');
         let email = $('#login-email').val();
         let password = $('#login-password').val();
         Meteor.loginWithPassword(email, password, (error) => {
@@ -21,7 +20,7 @@ Template.login.events({
                 console.log(error.reason);
             } else {
                             // Accounts.sendVerificationEmail(email);
-                            Meteor.call('sendVerificationLink',(error,response)=>{
+                            Meteor.call('sendWelcomeEmail',email,(error,response)=>{
                     if(error){
                         console.log('Error in sending verification email',error.reason);
                     }else{
@@ -30,12 +29,10 @@ Template.login.events({
                         
                     }
                 });
-                console.log('success');
             }
         });
     },
     'click .btn-signup'(event, template) {
-        console.log('Signup');
         let email = $('#login-email').val();
         let password = $('#login-password').val();
         Accounts.createUser({
@@ -45,7 +42,6 @@ Template.login.events({
             if (error) {
                 console.log(error.reason);
             } else {
-                console.log('success');
                 Meteor.call('sendVerificationLink',(error,response)=>{
                     if(error){
                         console.log('Error in sending verification email',error);
