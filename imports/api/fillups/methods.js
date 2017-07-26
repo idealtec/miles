@@ -16,10 +16,8 @@ Meteor.methods({
     let initMiles = myVehicle.miles;
     if(lastFillup){
       initMiles = lastFillup.miles;
-      console.log('top miles==',initMiles);
     }
     let vin = myVehicle.vin;
-    console.log('returning now', initMiles, miles);
     if (initMiles <= miles) {
       //mean data might be right..so insert
       return Fillups.insert({
@@ -33,7 +31,7 @@ Meteor.methods({
     } else {
       //current miles cannot be less than initial miles..please check
       console.log('Returning error as miles check failed');
-      throw new Meteor.Error('Miles cannot be less than initial miles');
+      throw new Meteor.Error('Miles cannot be less than your top miles :',initMiles);
     }
 
 
