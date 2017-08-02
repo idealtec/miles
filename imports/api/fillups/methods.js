@@ -14,7 +14,7 @@ Meteor.methods({
     let myVehicle = Vehicles.findOne({ owner: this.userId });
     let lastFillup = Fillups.findOne({ owner: this.userId }, { "sort": [['miles', 'desc']] });
     let initMiles = myVehicle.miles;
-    if(lastFillup){
+    if (lastFillup) {
       initMiles = lastFillup.miles;
     }
     let vin = myVehicle.vin;
@@ -31,7 +31,7 @@ Meteor.methods({
     } else {
       //current miles cannot be less than initial miles..please check
       console.log('Returning error as miles check failed');
-      throw new Meteor.Error('Miles cannot be less than your top miles :',initMiles);
+      throw new Meteor.Error('Miles cannot be less than your top miles :', initMiles);
     }
 
 
@@ -41,6 +41,13 @@ Meteor.methods({
       owner: this.userId,
     });
   },
+  'fillups.aggre'() {
+    var aggre = Fillups.aggregate({
+      $match: { owner: this.userId },
+     
+    });
+    return aggre;
+  }
 });
 
 // function getLatestMiles() {

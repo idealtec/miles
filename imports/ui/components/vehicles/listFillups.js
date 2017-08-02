@@ -20,10 +20,15 @@ import {
 
 Template.listFillups.onCreated(function () {
     Meteor.subscribe('fillups.all');
+
+
+
+
 });
 
 Template.listFillups.helpers({
     fillups() {
+        fetchData("Hello","Template");
         let objs = Fillups.find({}, { fields: { miles: 1, price: 1, gallons: 1 } }).fetch();
         let labelsArray = [];
         let milesArray = [];
@@ -67,3 +72,14 @@ Template.listFillups.helpers({
         return timeago(value);
     },
 });
+
+let fetchData = (filters, template) => {
+    console.log('I will fetch data now');
+    Meteor.call('fillups.aggre', filters, (error, response) => {
+        if (error) {
+            console.log(error.reason);
+        } else {
+            console.log(response);
+        }
+    });
+};

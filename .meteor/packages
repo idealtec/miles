@@ -34,3 +34,4 @@ accounts-base
 session
 email
 meteorhacks:ssr
+meteorhacks:aggregate
