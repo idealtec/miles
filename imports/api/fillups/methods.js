@@ -42,10 +42,32 @@ Meteor.methods({
     });
   },
   'fillups.aggre'() {
-    var aggre = Fillups.aggregate({
-      $match: { owner: this.userId },
-     
-    });
+
+    // var pipeline = [
+    //   { "$match": { "area": "Car" } },
+    //   { "$project": { "time": { "$concat": [{ "$substr": [{ "$year": "$createdAt" }, 0, 4] }, ' - ', { "$substr": [{ "$month": "$createdAt" }, 0, 2] }] } } },
+    //   {
+    //     "$group": {
+    //       "_id": "$time",
+    //       "count": {
+    //         "$sum": 1
+    //       }
+    //     }
+    //   },
+    //   { "$sort": { "_id": 1 } }
+    // ];
+    var pipeline = [
+      { '$match': { owner: this.userId } },
+      {
+        '$group': {
+          '_id': '$gallons',
+          'ppm': { '$sum': { $divide: ["$price", "$gallons"] } },
+          'mpg': { '$sum': { $divide: ["$miles", "$gallons"] } },
+        }
+      },
+
+    ];
+    var aggre = Fillups.aggregate(pipeline);
     return aggre;
   }
 });

@@ -15,7 +15,7 @@ Template.barchart.onRendered(function () {
             data: {
                 labels: Session.get('labels'),
                 datasets: [{
-                    label: '# of Miles',
+                    label: 'miles per gallon',
                     data: Session.get('milesData'),
                     fill:false,
                     backgroundColor: [
@@ -40,7 +40,7 @@ Template.barchart.onRendered(function () {
                     borderWidth: 1
                 },
             {
-                    label: 'Price',
+                    label: 'Price Per Mile',
                     data: Session.get('priceData'),
                     fill:true,
                     backgroundColor: [
